@@ -1,40 +1,154 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
+<head>
+    <!-- Grundlegende Meta‑Angaben -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine erste Website</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <header>
-      <h1>Willkommen auf meiner Website</h1>
-      <nav>
-        <a href="#">Start</a>
-        <a href="#">Über mich</a>
-        <a href="#">Kontakt</a>
-      </nav>
-    </header>
+    <title>Lasse Knoop – Fotografie</title>
+    <meta name="description"
+          content="Portfolio von Lasse Knoop – moderne Fotografie, Reise‑Reportagen und Buchungs‑Kontakt.">
+    <!-- Open Graph für Social Media -->
+    <meta property="og:title" content="Lasse Knoop – Fotografie">
+    <meta property="og:description"
+          content="Portfolio von Lasse Knoop – moderne Fotografie, Reise‑Reportagen und Buchungs‑Kontakt.">
+    <meta property="og:image" content="assets/img/og-image.jpg">
+    <meta property="og:url" content="https://deine-domain.de/">
+    <meta property="og:type" content="website">
 
-    <main>
-      <section>
-        <h2>Mein erstes Projekt</h2>
-        <p>Hier entsteht etwas Spannendes – mit HTML, CSS und JavaScript.</p>
-        <button id="colorButton">Farbe ändern</button>
-      </section>
-    </main>
+    <!-- CSS – eigene Datei + Lightbox (CDN) -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 
-    <footer>
-      <p>© 2025 – erstellt im Enrichment-Kurs „Mit KI zur eigenen Website“</p>
-      <p>
-	  <!-- ===========================================================
-			Impressum - Bitte nicht verändern! (rechtlich verbindlich)
-		=========================================================== -->
-        <a href="impressum.html" target="_blank" rel="noopener noreferrer">Impressum</a>
-		<a href="impressum_eltern.html" target="_blank" rel="noopener noreferrer">Impressum verantwortliche Eltern</a>
-      </p>
-    </footer>
+    <!-- Fallback‑Schrift (falls Web‑Font nicht geladen wird) -->
+    <style>
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: local('SF Pro Display'), local('Helvetica Neue'), sans-serif;
+        }
+        @font-face {
+            font-family: 'Merriweather';
+            src: local('Merriweather'), serif;
+        }
+    </style>
+</head>
+<body>
 
-    <script src="script.js"></script>
-  </body>
+<!-- ==================== HEADER ==================== -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="Startseite">
+            <!-- Logo optional – hier ein SVG‑Platzhalter -->
+            <img src="assets/img/logo-white.svg" alt="Lasse Knoop – Fotografie">
+        </a>
+
+        <nav class="nav" aria-label="Hauptnavigation">
+            <ul>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="reisen.html">Reisen</a></li>
+                <li><a href="kontakt.html">Kontakt / Buchung</a></li>
+            </ul>
+        </nav>
+
+        <!-- Mobile‑Menu‑Button -->
+        <button class="nav-toggle" aria-label="Menü öffnen">
+            <span class="icon-menu"></span>
+        </button>
+    </div>
+</header>
+
+<!-- ==================== HERO SLIDER (Startseite) ==================== -->
+<section class="hero-slider">
+    <!-- Slide 1 -->
+    <div class="slide active"
+         style="background-image:url('assets/img/hero/hero1.jpg');">
+        <div class="caption">
+            <h1>Berlin – Urbanes Licht</h1>
+            <p>Die Stadt im Zwielicht – ein Spiel aus Schatten und Neon.</p>
+        </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide"
+         style="background-image:url('assets/img/hero/hero2.jpg');">
+        <div class="caption">
+            <h1>Island – Eis & Feuer</h1>
+            <p>Gletscher, Vulkane und das unendliche Blau des Nordens.</p>
+        </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide"
+         style="background-image:url('assets/img/hero/hero3.jpg');">
+        <div class="caption">
+            <h1>Rom – Zeitlose Eleganz</h1>
+            <p>Antike Architektur trifft modernes Lichtspiel.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="content">
+
+    <!-- Intro‑Bereich -->
+    <section class="intro-section" style="padding:var(--space-lg) var(--space-md); text-align:center;">
+        <h2>Willkommen bei Lasse Knoop – Fotografie</h2>
+        <p>Ich fotografiere das Besondere – von pulsierenden Metropolen bis zu abgelegenen Naturlandschaften.
+           Entdecke meine Projekte, buche ein Shooting oder lass dich von meinen Reisen inspirieren.</p>
+    </section>
+
+    <!-- Beispiel‑Galerie (Masonry‑Grid) -->
+    <section class="gallery-grid">
+        <!-- Bild 1 -->
+        <figure class="gallery-item">
+            <a href="assets/img/galerie/01.jpg" class="lightbox" data-title="Berlin – Abendlicht, 2024">
+                <img src="assets/img/galerie/01-thumb.jpg"
+                     alt="Berlin – Abendlicht">
+            </a>
+            <figcaption>Berlin – Abendlicht, 2024</figcaption>
+        </figure>
+
+        <!-- Bild 2 -->
+        <figure class="gallery-item">
+            <a href="assets/img/galerie/02.jpg" class="lightbox" data-title="Santorini – Sonnenuntergang, 2023">
+                <img src="assets/img/galerie/02-thumb.jpg"
+                     alt="Santorini – Sonnenuntergang">
+            </a>
+            <figcaption>Santorini – Sonnenuntergang, 2023</figcaption>
+        </figure>
+
+        <!-- Bild 3 -->
+        <figure class="gallery-item">
+            <a href="assets/img/galerie/03.jpg" class="lightbox" data-title="Moskau – Winter, 2022">
+                <img src="assets/img/galerie/03-thumb.jpg"
+                     alt="Moskau – Winter">
+            </a>
+            <figcaption>Moskau – Winter, 2022</figcaption>
+        </figure>
+
+        <!-- weitere Bilder nach dem gleichen Muster -->
+    </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <p class="footer-copy">
+            © 2025 Lasse Knoop – Fotografie. Alle Rechte vorbehalten.
+        </p>
+        <ul class="footer-links">
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+    </div>
+</footer>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<!-- Lightbox (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+<!-- Eigene Skripte -->
+<script src="js/main.js"></script>
+</body>
 </html>
