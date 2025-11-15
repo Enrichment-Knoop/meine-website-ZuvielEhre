@@ -1,154 +1,436 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <!-- Grundlegende Meta‑Angaben -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lasse Knoop – Fotografie</title>
-    <meta name="description"
-          content="Portfolio von Lasse Knoop – moderne Fotografie, Reise‑Reportagen und Buchungs‑Kontakt.">
-    <!-- Open Graph für Social Media -->
-    <meta property="og:title" content="Lasse Knoop – Fotografie">
-    <meta property="og:description"
-          content="Portfolio von Lasse Knoop – moderne Fotografie, Reise‑Reportagen und Buchungs‑Kontakt.">
-    <meta property="og:image" content="assets/img/og-image.jpg">
-    <meta property="og:url" content="https://deine-domain.de/">
-    <meta property="og:type" content="website">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lasse Knoop – Fotografie</title>
+  <meta name="description"
+        content="Portfolio von Lasse Knoop – moderne Fotografie, Reise‑Reportagen und Buchungs‑Kontakt.">
 
-    <!-- CSS – eigene Datei + Lightbox (CDN) -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <!-- Font‑Awesome (für die Social‑Icons) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Fallback‑Schrift (falls Web‑Font nicht geladen wird) -->
-    <style>
-        @font-face {
-            font-family: 'SF Pro Display';
-            src: local('SF Pro Display'), local('Helvetica Neue'), sans-serif;
-        }
-        @font-face {
-            font-family: 'Merriweather';
-            src: local('Merriweather'), serif;
-        }
-    </style>
+  <!-- Google‑Fonts (Inria Sans für die Navbar, optional SF Pro Display für den Rest) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;500&family=SF+Pro+Display:wght@400;600&display=swap"
+        rel="stylesheet">
+
+  <style>
+    /* -------------------------------------------------
+       Farben & Grundvariablen
+       ------------------------------------------------- */
+    :root {
+      --pink-accent: #edabd2;
+      --light-gray: #a2aabc;
+      --dim-gray:   #d2d4d2;
+      --dark-bg:    #0f0f0f;
+      --gold-accent:#D4AF37;
+      --bg-dark:    #1a1a1a;
+    }
+
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      min-height:100vh;
+      background:var(--dark-bg);
+      font-family:'SF Pro Display',-apple-system,system-ui,sans-serif;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    /* -------------------------------------------------
+       Sparkle‑Background
+       ------------------------------------------------- */
+    .sparkles {
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+    }
+    .sparkle {
+      position:absolute;
+      border-radius:50%;
+      animation:twinkle 3s infinite;
+    }
+    @keyframes twinkle{
+      0%,100%{opacity:0}
+      50%{opacity:1}
+    }
+
+    /* -------------------------------------------------
+       Vertikale Navbar (rechts)
+       ------------------------------------------------- */
+    .nav-container{
+      position:fixed;
+      top:0; right:0;
+      width:144px;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      padding:32px 16px;
+      background:transparent;
+      z-index:50;
+    }
+    .nav-logo{
+      width:48px; height:48px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:8px 0;
+      cursor:pointer;
+      transition:transform .3s ease;
+    }
+    .nav-logo:hover{ transform:scale(1.1); }
+
+    .nav-line-decor-top,
+    .nav-line-decor-middle{
+      width:1px;
+      background:var(--dim-gray);
+      flex:1;
+    }
+    .nav-line-decor-bottom{
+      width:1px;
+      background:var(--dim-gray);
+      min-height:32px;
+    }
+
+    .nav-links{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:16px;
+      padding-right:64px;
+      margin:24px 0;
+    }
+    .nav-link{
+      color:var(--dim-gray);
+      font-family:'Inria Sans',sans-serif;
+      font-size:18px;
+      font-weight:500;
+      text-transform:uppercase;
+      text-decoration:none;
+      transition:color .3s ease;
+    }
+    .nav-link:hover{ color:var(--pink-accent); }
+
+    .social-links{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:20px;
+      margin-top:8px;
+    }
+    .social-link{
+      color:var(--dim-gray);
+      font-size:18px;
+      text-decoration:none;
+      transition:color .3s ease;
+    }
+    .social-link:hover{ color:var(--pink-accent); }
+
+    /* -------------------------------------------------
+       Main‑Content (Platz für Navbar)
+       ------------------------------------------------- */
+    .main-content{
+      min-height:100vh;
+      padding-right:144px;      /* Raum für die Navbar */
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      position:relative;       /* über dem Sparkle‑Layer */
+      z-index:1;
+    }
+
+    /* -------------------------------------------------
+       Hero‑Slider (Startseite)
+       ------------------------------------------------- */
+    .hero-slider{
+      position:relative;
+      width:100%;
+      height:80vh;
+      overflow:hidden;
+    }
+    .slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transition:opacity .35s ease;
+    }
+    .slide.active{ opacity:1; }
+    .caption{
+      position:absolute;
+      left:2rem; bottom:2rem;
+      color:#fff;
+      text-shadow:0 0 8px rgba(0,0,0,.7);
+    }
+    .caption h1{font-size:2.5rem;margin-bottom:.5rem;}
+    .caption p{font-size:1.2rem;}
+
+    /* -------------------------------------------------
+       Gallery (Masonry‑Style)
+       ------------------------------------------------- */
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(280px,1fr));
+      gap:1rem;
+      width:100%;
+      max-width:1200px;
+      padding:2rem;
+    }
+    .gallery-item{
+      position:relative;
+      overflow:hidden;
+      border-radius:4px;
+    }
+    .gallery-item img{
+      width:100%; height:auto;
+      display:block;
+      transition:transform .35s ease;
+    }
+    .gallery-item:hover img{ transform:scale(1.07); }
+    .gallery-item figcaption{
+      position:absolute;
+      left:.5rem; bottom:.5rem;
+      background:rgba(0,0,0,.55);
+      color:#fff;
+      padding:.3rem .6rem;
+      font-size:.85rem;
+      font-family:'Merriweather',serif;
+    }
+
+    /* -------------------------------------------------
+       Footer
+       ------------------------------------------------- */
+    .site-footer{
+      background:var(--bg-dark);
+      color:var(--light-gray);
+      text-align:center;
+      padding:2rem 1rem;
+      font-size:.9rem;
+    }
+    .footer-links{
+      list-style:none;
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      margin-top:.5rem;
+    }
+    .footer-links a{
+      color:var(--light-gray);
+      text-decoration:none;
+    }
+    .footer-links a:hover{ color:var(--gold-accent); }
+
+    /* -------------------------------------------------
+       Responsive
+       ------------------------------------------------- */
+    @media (max-width:768px){
+      .nav-container{ width:96px; }
+      .main-content{ padding-right:96px; }
+      .caption h1{font-size:1.8rem;}
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ==================== HEADER ==================== -->
-<header class="site-header">
-    <div class="header-inner">
-        <a href="index.html" class="logo" aria-label="Startseite">
-            <!-- Logo optional – hier ein SVG‑Platzhalter -->
-            <img src="assets/img/logo-white.svg" alt="Lasse Knoop – Fotografie">
+  <!-- Sparkle Background -->
+  <div class="sparkles" id="sparkles"></div>
+
+  <!-- Vertical Navigation Bar -->
+  <nav class="nav-container">
+    <!-- Logo -->
+    <div class="nav-logo"><span style="font-size:48px;">✨</span></div>
+
+    <!-- Decorative line (top) -->
+    <div class="nav-line-decor-top"></div>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link">Home</a></li>
+      <li><a href="#gallery" class="nav-link">Galerie</a></li>
+      <li><a href="#travel" class="nav-link">Reisen</a></li>
+      <li><a href="#contact" class="nav-link">Kontakt</a></li>
+    </ul>
+
+    <!-- Decorative line (middle) -->
+    <div class="nav-line-decor-middle"></div>
+
+    <!-- Social Links -->
+    <ul class="social-links">
+      <li><a href="https://github.com/dpoppe7" target="_blank" class="social-link"><i class="fab fa-github"></i></a></li>
+      <li><a href="#" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a></li>
+      <li><a href="#" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a></li>
+    </ul>
+
+    <!-- Decorative line (bottom) -->
+    <div class="nav-line-decor-bottom"></div>
+  </nav>
+
+  <!-- Main Content (nimmt den Raum rechts ein) -->
+  <div class="main-content">
+
+    <!-- Hero Slider -->
+    <section id="hero" class="hero-slider">
+      <div class="slide active"
+           style="background-image:url('assets/img/hero/hero1.jpg');">
+        <div class="caption">
+          <h1>Berlin – Urbanes Licht</h1>
+          <p>Die Stadt im Zwielicht – ein Spiel aus Schatten und Neon.</p>
+        </div>
+      </div>
+      <div class="slide"
+           style="background-image:url('assets/img/hero/hero2.jpg');">
+        <div class="caption">
+          <h1>Island – Eis & Feuer</h1>
+          <p>Gletscher, Vulkane und das unendliche Blau des Nordens.</p>
+        </div>
+      </div>
+      <div class="slide"
+           style="background-image:url('assets/img/hero/hero3.jpg');">
+        <div class="caption">
+          <h1>Rom – Zeitlose Eleganz</h1>
+          <p>Antike Architektur trifft modernes Lichtspiel.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro / Willkommen -->
+    <section style="padding:2rem 1rem; text-align:center; max-width:800px;">
+      <h2>Willkommen bei Lasse Knoop – Fotografie</h2>
+      <p>Ich fotografiere das Besondere – von pulsierenden Metropolen bis zu abgelegenen Naturlandschaften.
+         Entdecke meine Projekte, buche ein Shooting oder lass dich von meinen Reisen inspirieren.</p>
+    </section>
+
+    <!-- Galerie -->
+    <section id="gallery" class="gallery-grid">
+      <figure class="gallery-item">
+        <a href="assets/img/galerie/01.jpg" class="lightbox"
+           data-title="Berlin – Abendlicht, 2024">
+          <img src="assets/img/galerie/01-thumb.jpg" alt="Berlin – Abendlicht">
         </a>
+        <figcaption>Berlin – Abendlicht, 2024</figcaption>
+      </figure>
 
-        <nav class="nav" aria-label="Hauptnavigation">
-            <ul>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="reisen.html">Reisen</a></li>
-                <li><a href="kontakt.html">Kontakt / Buchung</a></li>
-            </ul>
-        </nav>
+      <figure class="gallery-item">
+        <a href="assets/img/galerie/02.jpg" class="lightbox"
+           data-title="Santorini – Sonnenuntergang, 2023">
+          <img src="assets/img/galerie/02-thumb.jpg" alt="Santorini – Sonnenuntergang">
+        </a>
+        <figcaption>Santorini – Sonnenuntergang, 2023</figcaption>
+      </figure>
 
-        <!-- Mobile‑Menu‑Button -->
-        <button class="nav-toggle" aria-label="Menü öffnen">
-            <span class="icon-menu"></span>
+      <figure class="gallery-item">
+        <a href="assets/img/galerie/03.jpg" class="lightbox"
+           data-title="Moskau – Winter, 2022">
+          <img src="assets/img/galerie/03-thumb.jpg" alt="Moskau – Winter">
+        </a>
+        <figcaption>Moskau – Winter, 2022</figcaption>
+      </figure>
+
+      <!-- weitere Bilder nach dem gleichen Muster -->
+    </section>
+
+    <!-- Reise‑Reportagen (optional – kann entfernt werden) -->
+    <section id="travel" style="padding:2rem 1rem; max-width:800px;">
+      <h2>Reise‑Reportagen</h2>
+      <p>Von den Straßen Berlins bis zu den Gletschern Islands – meine fotografischen Abenteuer.</p>
+    </section>
+
+    <!-- Kontakt / Buchung -->
+    <section id="contact" style="padding:2rem 1rem; max-width:800px;">
+      <h2>Kontakt & Buchung</h2>
+      <p>Du hast ein Projekt, ein Shooting oder eine Kooperation im Sinn? Schreib mir einfach!</p>
+      <form id="contact-form"
+            action="https://formspree.io/f/your-form-id"
+            method="POST"
+            style="display:flex; flex-direction:column; gap:1rem;">
+        <input type="text" name="name" placeholder="Name *" required
+               style="padding:.6rem; border:none; border-radius:4px;">
+        <input type="email" name="_replyto" placeholder="E‑Mail *" required
+               style="padding:.6rem; border:none; border-radius:4px;">
+        <input type="text" name="subject" placeholder="Betreff"
+               style="padding:.6rem; border:none; border-radius:4px;">
+        <textarea name="message" rows="5" placeholder="Nachricht *" required
+                  style="padding:.6rem; border:none; border-radius:4px;"></textarea>
+        <button type="submit"
+                style="background:var(--pink-accent); color:#000; border:none; padding:.8rem; border-radius:4px; cursor:pointer;">
+          Absenden
         </button>
-    </div>
-</header>
-
-<!-- ==================== HERO SLIDER (Startseite) ==================== -->
-<section class="hero-slider">
-    <!-- Slide 1 -->
-    <div class="slide active"
-         style="background-image:url('assets/img/hero/hero1.jpg');">
-        <div class="caption">
-            <h1>Berlin – Urbanes Licht</h1>
-            <p>Die Stadt im Zwielicht – ein Spiel aus Schatten und Neon.</p>
-        </div>
-    </div>
-
-    <!-- Slide 2 -->
-    <div class="slide"
-         style="background-image:url('assets/img/hero/hero2.jpg');">
-        <div class="caption">
-            <h1>Island – Eis & Feuer</h1>
-            <p>Gletscher, Vulkane und das unendliche Blau des Nordens.</p>
-        </div>
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="slide"
-         style="background-image:url('assets/img/hero/hero3.jpg');">
-        <div class="caption">
-            <h1>Rom – Zeitlose Eleganz</h1>
-            <p>Antike Architektur trifft modernes Lichtspiel.</p>
-        </div>
-    </div>
-</section>
-
-<!-- ==================== MAIN CONTENT ==================== -->
-<main class="content">
-
-    <!-- Intro‑Bereich -->
-    <section class="intro-section" style="padding:var(--space-lg) var(--space-md); text-align:center;">
-        <h2>Willkommen bei Lasse Knoop – Fotografie</h2>
-        <p>Ich fotografiere das Besondere – von pulsierenden Metropolen bis zu abgelegenen Naturlandschaften.
-           Entdecke meine Projekte, buche ein Shooting oder lass dich von meinen Reisen inspirieren.</p>
+      </form>
     </section>
 
-    <!-- Beispiel‑Galerie (Masonry‑Grid) -->
-    <section class="gallery-grid">
-        <!-- Bild 1 -->
-        <figure class="gallery-item">
-            <a href="assets/img/galerie/01.jpg" class="lightbox" data-title="Berlin – Abendlicht, 2024">
-                <img src="assets/img/galerie/01-thumb.jpg"
-                     alt="Berlin – Abendlicht">
-            </a>
-            <figcaption>Berlin – Abendlicht, 2024</figcaption>
-        </figure>
+  </div> <!-- /.main-content -->
 
-        <!-- Bild 2 -->
-        <figure class="gallery-item">
-            <a href="assets/img/galerie/02.jpg" class="lightbox" data-title="Santorini – Sonnenuntergang, 2023">
-                <img src="assets/img/galerie/02-thumb.jpg"
-                     alt="Santorini – Sonnenuntergang">
-            </a>
-            <figcaption>Santorini – Sonnenuntergang, 2023</figcaption>
-        </figure>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© 2025 Lasse Knoop – Fotografie. Alle Rechte vorbehalten.</p>
+    <ul class="footer-links">
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </footer>
 
-        <!-- Bild 3 -->
-        <figure class="gallery-item">
-            <a href="assets/img/galerie/03.jpg" class="lightbox" data-title="Moskau – Winter, 2022">
-                <img src="assets/img/galerie/03-thumb.jpg"
-                     alt="Moskau – Winter">
-            </a>
-            <figcaption>Moskau – Winter, 2022</figcaption>
-        </figure>
+  <!-- -------------------------------------------------
+       JavaScript (Sparkles + Nav‑Link‑Handling)
+       ------------------------------------------------- -->
+  <script>
+    // ---------- Sparkle Background ----------
+    function createSparkles() {
+      const container = document.getElementById('sparkles');
+      const colors = ['#edabd2', '#ffae57', '#fcf577', '#bae67e', '#5ccfe6', '#9cc6f4', '#aa72c5', '#ffffff'];
 
-        <!-- weitere Bilder nach dem gleichen Muster -->
-    </section>
+      for (let i = 0; i < 100; i++) {
+        const s = document.createElement('div');
+        s.classList.add('sparkle');
 
-</main>
+        const size = Math.random() * 3 + 1;
+        const color = colors[Math.floor(Math.random() * colors.length)];
 
-<!-- ==================== FOOTER ==================== -->
-<footer class="site-footer">
-    <div class="footer-inner">
-        <p class="footer-copy">
-            © 2025 Lasse Knoop – Fotografie. Alle Rechte vorbehalten.
-        </p>
-        <ul class="footer-links">
-            <li><a href="impressum.html">Impressum</a></li>
-            <li><a href="datenschutz.html">Datenschutz</a></li>
-        </ul>
-    </div>
-</footer>
+        s.style.width = `${size}px`;
+        s.style.height = `${size}px`;
+        s.style.backgroundColor = color;
+        s.style.top = `${Math.random() * 100}vh`;
+        s.style.left = `${Math.random() * 100}vw`;
+        s.style.animationDelay = `${Math.random() * 3}s`;
+        s.style.boxShadow = `0 0 ${size * 2}px ${color}`;
 
-<!-- ==================== JAVASCRIPT ==================== -->
-<!-- Lightbox (CDN) -->
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+        container.appendChild(s);
+      }
+    }
 
-<!-- Eigene Skripte -->
-<script src="script.js"></script>
+    // ---------- Navbar‑Links (smooth scroll) ----------
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1); // ohne #
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ---------- Init ----------
+    createSparkles();
+  </script>
+
+  <!-- Optional: Lightbox für die Galerie (CDN) -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script>
+    // Lightbox initialisieren, falls GLightbox geladen ist
+    if (typeof GLightbox !== 'undefined') {
+      GLightbox({ selector: '.lightbox' });
+    }
+  </script>
 </body>
 </html>
