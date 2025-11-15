@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fotografie – Lasse Knoop</title>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="sparkles" id="sparkles"></div>
+
+  <!-- Header (gleicher Code) -->
+  <!--#include virtual="header.html" -->
+
+  <main class="main-content">
+
+    <h1>Fotografie‑Portfolio</h1>
+
+    <!-- Hero‑Slider -->
+    <section class="hero-slider">
+      <div class="slide active"
+           style="background-image:url('assets/img/hero/hero1.jpg');">
+        <div class="caption">
+          <h1>Berlin – Urbanes Licht</h1>
+          <p>Die Stadt im Zwielicht – ein Spiel aus Schatten und Neon.</p>
+        </div>
+      </div>
+
+      <div class="slide"
+           style="background-image:url('assets/img/hero/hero2.jpg');">
+        <div class="caption">
+          <h1>Island – Eis &amp; Feuer</h1>
+          <p>Gletscher, Vulkane und das unendliche Blau des Nordens.</p>
+        </div>
+      </div>
+
+      <div class="slide"
+           style="background-image:url('assets/img/hero/hero3.jpg');">
+        <div class="caption">
+          <h1>Rom – Zeitlose Eleganz</h1>
+          <p>Antike Architektur trifft modernes Lichtspiel.</p>
+        </div      </div>
+    </section>
+
+    <!-- Galerie -->
+    <section class="gallery-grid">
+      <figure class="gallery-item">
+        <a href="assets/img/galerie/01.jpg" class="lightbox"
+           data-title="Berlin – Abendlicht, 2024">
+          <img src="assets/img/galerie/01-thumb.jpg" alt="Berlin – Abendlicht">
+        </a>
+        <figcaption>Berlin – Abendlicht, 2024</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <a href="assets/img/galerie/02.jpg" class="lightbox"
+           data-title="Santorini – Sonnenuntergang, 2023">
+          <img src="assets/img/galerie/02-thumb.jpg" alt="Santorini – Sonnenuntergang">
+        </a>
+        <figcaption>Santorini – Sonnenuntergang, 2023</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <a href="assets/img/galerie/03.jpg" class="lightbox"
+           data-title="Moskau – Winter, 2022">
+          <img src="assets/img/galerie/03-thumb.jpg" alt="Moskau – Winter">
+        </a>
+        <figcaption>Moskau – Winter, 2022</figcaption>
+      </figure>
+
+      <!-- weitere Bilder nach gleichem Muster -->
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <!--#include virtual="footer.html" -->
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+</body>
+</html>
