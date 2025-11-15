@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt / Buchung – Lasse Knoop Fotografie</title>
+  <meta name="description"
+        content="Kontaktformular für Buchungen, Anfragen und Kooperationen mit Lasse Knoop.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Startseite">
+        <img src="assets/img/logo-white.svg" alt="Lasse Knoop – Fotografie">
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="reisen.html">Reisen</a></li>
+          <li><a href="kontakt.html">Kontakt / Buchung</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Menü öffnen">
+        <span class="icon-menu"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <section class="intro-section"
+             style="padding:var(--space-lg) var(--space-md); text-align:center;">
+      <h1>Kontakt & Buchung</h1>
+      <p>Du hast ein Projekt, ein Shooting oder eine Kooperation im Sinn? Schreib mir einfach!</p>
+    </section>
+
+    <section class="contact-form-section" style="max-width:800px; margin:0 auto; padding:var(--space-lg);">
+      <form id="contact-form" action="https://formspree.io/f/your-form-id"
+            method="POST" novalidate>
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E‑Mail *</label>
+          <input type="email" id="email" name="_replyto" required>
+        </div>
+
+        <div class="form-group">
+          <label forsubject">Betreff</label>
+          <input type="text" id="subject" name="subject">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Nachricht *</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary">Absenden</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">
+        © 2025 Lasse Knoop – Fotografie. Alle Rechte vorbehalten.
+      </p>
+      <ul class="footer-links">
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
