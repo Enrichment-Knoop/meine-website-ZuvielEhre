@@ -1,69 +1,58 @@
 /* -------------------------------------------------
-   main.js – zentrale Interaktionen
+   Sparkle background
    ------------------------------------------------- */
+function createSparkles() {
+  const container = document.getElementById('sparkles');
+  const colors = [
+    '#edabd2', '#ffae57', '#fcf577',
+    '#bae67e', '#5ccfe6', '#9cc6f4',
+    '#aa72c5', '#ffffff'
+  ];
 
-/* 1. Mobile‑Navigation öffnen / schließen */
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu   = document.querySelector('.nav ul');
+  for (let i = 0; i < 100; i++) {
+    const s = document.createElement('div');
+    s.classList.add('sparkle');
 
-if (navToggle && navMenu) {
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-    navToggle.setAttribute('aria-label',
-      navMenu.classList.contains('open') ? 'Menü schließen' : 'Menü öffnen');
-  });
+    const size  = Math.random() * 3 + 1;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+
+    s.style.width            = `${size}px`;
+    s.style.height           = `${size}px`;
+    s.style.backgroundColor  = color;
+    s.style.top              = `${Math.random() * 100}vh`;
+    s.style.left             = `${Math.random() * 100}vw`;
+    s.style.animationDelay  = `${Math.random() * 3}s`;
+    s.style.boxShadow       = `0 0 ${size * 2}px ${color}`;
+
+    container.appendChild(s);
+  }
 }
 
-/* 2. Hero‑Slider (einfacher Vanilla‑Slider) */
-const slides = document.querySelectorAll('.hero-slider .slide');
-let current = 0;
-const slideInterval = 5000; // 5 s
-
-function showSlide(index) {
-  slides.forEach((s, i) => s.classList.toggle('active', i === index));
-}
-function nextSlide() {
-  current = (current + 1) % slides.length;
-  showSlide(current);
-}
-if (slides.length > 0) {
-  showSlide(current);
-  setInterval(nextSlide, slideInterval);
-}
-
-/* 3. Lightbox‑Initialisierung (GLightbox) */
-if (typeof GLightbox !== 'undefined') {
-  const lightbox = GLightbox({
-    selector: '.lightbox',
-    loop: true,
-    closeEffect: 'fade',
-    openEffect: 'fade',
-    plyr: {
-      css: 'https://cdn.jsdelivr.net/npm/plyr@3/dist/plyr.css',
-      js:  'https://cdn.jsdelivr.net/npm/plyr@3/dist/plyr.js'
+/* -------------------------------------------------
+   Navbar – smooth scroll to sections
+   ------------------------------------------------- */
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href').replace('#', '');
+    const target   = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
     }
   });
+});
+
+/* -------------------------------------------------
+   Lightbox (GLightbox) – optional
+   ------------------------------------------------- */
+function initLightbox() {
+  if (typeof GLightbox !== 'undefined') {
+    GLightbox({ selector: '.lightbox' });
+  }
 }
 
-/* 4. Kontakt‑Formular‑Validierung (einfach) */
-const contactForm = document.querySelector('#contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', e => {
-    const required = contactForm.querySelectorAll('[required]');
-    let valid = true;
-
-    required.forEach(inp => {
-      if (!inp.value.trim()) {
-        valid = false;
-        inp.classList.add('error');
-      } else {
-        inp.classList.remove('error');
-      }
-    });
-
-    if (!valid) {
-      e.preventDefault();
-      alert('Bitte fülle alle Pflichtfelder aus.');
-    }
-  });
-}
+/* -------------------------------------------------
+   Init
+   ------------------------------------------------- */
+createSparkles();
+initLightbox();
