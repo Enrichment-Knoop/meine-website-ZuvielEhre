@@ -1,161 +1,154 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lasse Knoop – Fotografie</title>
-  <meta name="description"
-        content="Portfolio von Lasse Knoop – moderne Fotografie, Reise‑Reportagen und Buchungs‑Kontakt.">
+    <!-- Grundlegende Meta‑Angaben -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lasse Knoop – Fotografie</title>
+    <meta name="description"
+          content="Portfolio von Lasse Knoop – moderne Fotografie, Reise‑Reportagen und Buchungs‑Kontakt.">
+    <!-- Open Graph für Social Media -->
+    <meta property="og:title" content="Lasse Knoop – Fotografie">
+    <meta property="og:description"
+          content="Portfolio von Lasse Knoop – moderne Fotografie, Reise‑Reportagen und Buchungs‑Kontakt.">
+    <meta property="og:image" content="assets/img/og-image.jpg">
+    <meta property="og:url" content="https://deine-domain.de/">
+    <meta property="og:type" content="website">
 
-  <!-- Font‑Awesome (Social‑Icons) -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS – eigene Datei + Lightbox (CDN) -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 
-  <!-- Google‑Fonts (Inria Sans für die Navbar, optional SF Pro Display für den Rest) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;500&family=SF+Pro+Display:wght@400;600&display=swap"
-        rel="stylesheet">
-
-  <!-- Lightbox (für die Galerie) -->
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-
-  <!-- Global stylesheet -->
-  <link rel="stylesheet" href="style.css">
+    <!-- Fallback‑Schrift (falls Web‑Font nicht geladen wird) -->
+    <style>
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: local('SF Pro Display'), local('Helvetica Neue'), sans-serif;
+        }
+        @font-face {
+            font-family: 'Merriweather';
+            src: local('Merriweather'), serif;
+        }
+    </style>
 </head>
-
 <body>
 
-  <!-- Sparkle Background -->
-  <div class="sparkles" id="sparkles"></div>
-
-  <!-- Vertical Navigation Bar -->
-  <nav class="nav-container">
-    <div class="nav-logo"><span style="font-size:48px;">✨</span></div>
-
-    <div class="nav-line-decor-top"></div>
-
-    <ul class="nav-links">
-      <li><a href="#hero"   class="nav-link">Home</a></li>
-      <li><a href="#gallery" class="nav-link">Galerie</a></li>
-      <li><a href="#travel"  class="nav-link">Reisen</a></li>
-      <li><a href="#contact" class="nav-link">Kontakt</a></li>
-    </ul>
-
-    <div class="nav-line-decor-middle"></div>
-
-    <ul class="social-links">
-      <li><a href="https://github.com/dpoppe7" target="_blank" class="social-link"><i class="fab fa-github"></i></a></li>
-      <li><a href="#" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a></li>
-      <li><a href="#" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a></li>
-    </ul>
-
-    <div class="nav-line-decor-bottom"></div>
-  </nav>
-
-  <!-- Main Content (right of the navbar) -->
-  <div class="main-content">
-
-    <!-- Hero Slider -->
-    <section id="hero" class="hero-slider">
-      <div class="slide active"
-           style="background-image:url('assets/img/hero/hero1.jpg');">
-        <div class="caption">
-          <h1>Berlin – Urbanes Licht</h1>
-          <p>Die Stadt im Zwielicht – ein Spiel aus Schatten und Neon.</p>
-        </div>
-      </div>
-
-      <div class="slide"
-           style="background-image:url('assets/img/hero/hero2.jpg');">
-        <div class="caption">
-          <h1>Island – Eis & Feuer</h1>
-          <p>Gletscher, Vulkane und das unendliche Blau des Nordens.</p>
-        </div>
-      </div>
-
-      <div class="slide"
-           style="background-image:url('assets/img/hero/hero3.jpg');">
-        <div class="caption">
-          <h1>Rom – Zeitlose Eleganz</h1>
-          <p>Antike Architektur trifft modernes Lichtspiel.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Intro / Willkommen -->
-    <section class="intro">
-      <h2>Willkommen bei Lasse Knoop – Fotografie</h2>
-      <p>Ich fotografiere das Besondere – von pulsierenden Metropolen bis zu abgelegenen Naturlandschaften.
-         Entdecke meine Projekte, buche ein Shooting oder lass dich von meinen Reisen inspirieren.</p>
-    </section>
-
-    <!-- Galerie -->
-    <section id="gallery" class="gallery-grid">
-      <figure class="gallery-item">
-        <a href="assets/img/galerie/01.jpg" class="lightbox"
-           data-title="Berlin – Abendlicht, 2024">
-          <img src="assets/img/galerie/01-thumb.jpg" alt="Berlin – Abendlicht">
+<!-- ==================== HEADER ==================== -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="Startseite">
+            <!-- Logo optional – hier ein SVG‑Platzhalter -->
+            <img src="assets/img/logo-white.svg" alt="Lasse Knoop – Fotografie">
         </a>
-        <figcaption>Berlin – Abendlicht, 2024</figcaption>
-      </figure>
 
-      <figure class="gallery-item">
-        <a href="assets/img/galerie/02.jpg" class="lightbox"
-           data-title="Santorini – Sonnenuntergang, 2023">
-          <img src="assets/img/galerie/02-thumb.jpg" alt="Santorini – Sonnenuntergang">
-        </a>
-        <figcaption>Santorini – Sonnenuntergang, 2023</figcaption>
-      </figure>
+        <nav class="nav" aria-label="Hauptnavigation">
+            <ul>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="reisen.html">Reisen</a></li>
+                <li><a href="kontakt.html">Kontakt / Buchung</a></li>
+            </ul>
+        </nav>
 
-      <figure class="gallery-item">
-        <a href="assets/img/galerie/03.jpg" class="lightbox"
-           data-title="Moskau – Winter, 2022">
-          <img src="assets/img/galerie/03-thumb.jpg" alt="Moskau – Winter">
-        </a>
-        <figcaption>Moskau – Winter, 2022</figcaption>
-      </figure>
+        <!-- Mobile‑Menu‑Button -->
+        <button class="nav-toggle" aria-label="Menü öffnen">
+            <span class="icon-menu"></span>
+        </button>
+    </div>
+</header>
 
-      <!-- weitere Bilder nach dem gleichen Muster -->
+<!-- ==================== HERO SLIDER (Startseite) ==================== -->
+<section class="hero-slider">
+    <!-- Slide 1 -->
+    <div class="slide active"
+         style="background-image:url('assets/img/hero/hero1.jpg');">
+        <div class="caption">
+            <h1>Berlin – Urbanes Licht</h1>
+            <p>Die Stadt im Zwielicht – ein Spiel aus Schatten und Neon.</p>
+        </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide"
+         style="background-image:url('assets/img/hero/hero2.jpg');">
+        <div class="caption">
+            <h1>Island – Eis & Feuer</h1>
+            <p>Gletscher, Vulkane und das unendliche Blau des Nordens.</p>
+        </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide"
+         style="background-image:url('assets/img/hero/hero3.jpg');">
+        <div class="caption">
+            <h1>Rom – Zeitlose Eleganz</h1>
+            <p>Antike Architektur trifft modernes Lichtspiel.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="content">
+
+    <!-- Intro‑Bereich -->
+    <section class="intro-section" style="padding:var(--space-lg) var(--space-md); text-align:center;">
+        <h2>Willkommen bei Lasse Knoop – Fotografie</h2>
+        <p>Ich fotografiere das Besondere – von pulsierenden Metropolen bis zu abgelegenen Naturlandschaften.
+           Entdecke meine Projekte, buche ein Shooting oder lass dich von meinen Reisen inspirieren.</p>
     </section>
 
-    <!-- Reise‑Reportagen -->
-    <section id="travel" class="section">
-      <h2>Reise‑Reportagen</h2>
-      <p>Von den Straßen Berlins bis zu den Gletschern Islands – meine fotografischen Abenteuer.</p>
+    <!-- Beispiel‑Galerie (Masonry‑Grid) -->
+    <section class="gallery-grid">
+        <!-- Bild 1 -->
+        <figure class="gallery-item">
+            <a href="assets/img/galerie/01.jpg" class="lightbox" data-title="Berlin – Abendlicht, 2024">
+                <img src="assets/img/galerie/01-thumb.jpg"
+                     alt="Berlin – Abendlicht">
+            </a>
+            <figcaption>Berlin – Abendlicht, 2024</figcaption>
+        </figure>
+
+        <!-- Bild 2 -->
+        <figure class="gallery-item">
+            <a href="assets/img/galerie/02.jpg" class="lightbox" data-title="Santorini – Sonnenuntergang, 2023">
+                <img src="assets/img/galerie/02-thumb.jpg"
+                     alt="Santorini – Sonnenuntergang">
+            </a>
+            <figcaption>Santorini – Sonnenuntergang, 2023</figcaption>
+        </figure>
+
+        <!-- Bild 3 -->
+        <figure class="gallery-item">
+            <a href="assets/img/galerie/03.jpg" class="lightbox" data-title="Moskau – Winter, 2022">
+                <img src="assets/img/galerie/03-thumb.jpg"
+                     alt="Moskau – Winter">
+            </a>
+            <figcaption>Moskau – Winter, 2022</figcaption>
+        </figure>
+
+        <!-- weitere Bilder nach dem gleichen Muster -->
     </section>
 
-    <!-- Kontakt / Buchung -->
-    <section id="contact" class="section">
-      <h2>Kontakt & Buchung</h2>
-      <p>Du hast ein Projekt, ein Shooting oder eine Kooperation im Sinn? Schreib mir einfach!</p>
+</main>
 
-      <form id="contact-form"
-            action="https://formspree.io/f/your-form-id"
-            method="POST"
-            class="contact-form">
-        <input type="text" name="name" placeholder="Name *" required>
-        <input type="email" name="_replyto" placeholder="E‑Mail *" required>
-        <input type="text" name="subject" placeholder="Betreff">
-        <textarea name="message" rows="5" placeholder="Nachricht *" required></textarea>
-        <button type="submit">Absenden</button>
-      </form>
-    </section>
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <p class="footer-copy">
+            © 2025 Lasse Knoop – Fotografie. Alle Rechte vorbehalten.
+        </p>
+        <ul class="footer-links">
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+    </div>
+</footer>
 
-  </div> <!-- /.main-content -->
+<!-- ==================== JAVASCRIPT ==================== -->
+<!-- Lightbox (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>© 2025 Lasse Knoop – Fotografie. Alle Rechte vorbehalten.</p>
-    <ul class="footer-links">
-      <li><a href="impressum.html">Impressum</a></li>
-      <li><a href="datenschutz.html">Datenschutz</a></li>
-    </ul>
-  </footer>
-
-  <!-- Global script -->
-  <script src="script.js"></script>
-
-  <!-- Lightbox script (optional) -->
-  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<!-- Eigene Skripte -->
+<script src="script.js"></script>
 </body>
 </html>
