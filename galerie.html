@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie – Lasse Knoop Fotografie</title>
+  <meta name="description"
+        content="Entdecke die Foto‑Galerie von Lasse Knoop – Reise‑Reportagen, Portraits und mehr.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+</head>
+<body>
+
+  <!-- Header (wie in index.html) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Startseite">
+        <img src="assets/img/logo-white.svg" alt="Lasse Knoop – Fotografie">
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="reisen.html">Reisen</a></li>
+          <li><a href="kontakt.html">Kontakt / Buchung</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Menü öffnen">
+        <span class="icon-menu"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="intro-section"
+             style="padding:var(--space-lg) var(--space-md); text-align:center;">
+      <h1>Galerie</h1>
+      <p>Eine Auswahl meiner besten Aufnahmen – nach Themen filterbar.</p>
+    </section>
+
+    <!-- Filter‑Leiste (optional) -->
+    <nav class="gallery-filter" style="text-align:center; margin-bottom:var(--space-lg);">
+      <button data-filter="all">Alle</button>
+      <button data-filter="reise">Reisen</button>
+      <button data-filter="portrait">Portrait</button>
+      <button data-filter="architektur">Architektur</button>
+    </nav>
+
+    <!-- Masonry‑Grid -->
+    <section class="gallery-grid">
+      <!-- Beispiel‑Eintrag – wiederhole das Muster -->
+      <figure class="gallery-item" data-category="reise">
+        <a href="assets/img/galerie/01.jpg" class="lightbox"
+           data-title="Berlin – Abendlicht, 2024">
+          <img src="assets/img/galerie/01-thumb.jpg"
+               alt="Berlin – Abendlicht">
+        </a>
+        <figcaption>Berlin – Abendlicht, 2024</figcaption>
+      </figure>
+
+      <!-- weitere Bilder … -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">
+        © 2025 Lasse Knoop – Fotografie. Alle Rechte vorbehalten.
+      </p>
+      <ul class="footer-links">
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
