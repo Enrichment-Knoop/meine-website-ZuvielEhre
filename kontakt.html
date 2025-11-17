@@ -5,16 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt – Lasse Knoop</title>
 
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
   <div class="sparkles" id="sparkles"></div>
 
   <!-- Header -->
-  <!--#include virtual="header.html" -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Startseite">
+        <img src="assets/img/logo-white.svg" alt="Lasse Knoop – Fotografie & Web‑Design">
+      </a>
+
+      <nav class="nav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="index_fotografie.html" class="nav-link" data-theme="fotografie">Fotografie</a></li>
+          <li><a href="index_webdesign.html" class="nav-link" data-theme="webdesign">Web‑Design</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="impressum.html">Impressum</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Menü öffnen"><span class="icon-menu"></span></button>
+    </div>
+  </header>
 
   <main class="main-content">
     <h1>Kontakt &amp; Buchung</h1>
@@ -34,7 +50,15 @@
   </main>
 
   <!-- Footer -->
-  <!--#include virtual="footer.html" -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2025 Lasse Knoop – Fotografie & Web‑Design. Alle Rechte vorbehalten.</p>
+      <ul class="footer-links">
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
