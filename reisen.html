@@ -3,84 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reisen – Lasse Knoop Fotografie</title>
-  <meta name="description"
-        content="Reise‑Reportagen von Lasse Knoop – Geschichten aus aller Welt in Bild und Text.">
-  <link rel="stylesheet" href="style.css">
+  <title>Reisen – Lasse Knoop</title>
+  <link rel="stylesheet" href="style.css?v=1.2">
 </head>
 <body>
+  <div id="sparkles"></div>
 
-  <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo" aria-label="Startseite">
-        <img src="assets/img/logo-white.svg" alt="Lasse Knoop – Fotografie">
-      </a>
-      <nav class="nav" aria-label="Hauptnavigation">
+      <a href="index.html" class="logo"><img src="assets/img/logo-white.svg" alt="Lasse Knoop"></a>
+      <button class="nav-toggle"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <nav class="nav">
         <ul>
-          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="index_fotografie.html" data-theme="fotografie">Fotografie</a></li>
+          <li><a href="index_webdesign.html" data-theme="webdesign">Web‑Design</a></li>
           <li><a href="reisen.html">Reisen</a></li>
-          <li><a href="kontakt.html">Kontakt / Buchung</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
       </nav>
-      <button class="nav-toggle" aria-label="Menü öffnen">
-        <span class="icon-menu"></span>
-      </button>
     </div>
   </header>
 
-  <main class="content">
+  <main class="main-content">
+    <h1>Reise-Journal</h1>
+    <p>Unterwegs in der Welt. Geschichten und Bilder.</p>
 
-    <section class="intro-section"
-             style="padding:var(--space-lg) var(--space-md); text-align:center;">
-      <h1>Reise‑Reportagen</h1>
-      <p>Von den Straßen Berlins bis zu den Gletschern Islands – meine fotografischen Abenteuer.</p>
-    </section>
-
-    <!-- Einzelne Reise‑Stories -->
-    <article class="travel-story" style="margin-bottom:var(--space-xl);">
-      <picture>
-        <source srcset="assets/img/reisen/berlin-large.jpg" media="(min-width: 800px)">
-        <img src="assets/img/reisen/berlin-small.jpg"
-             alt="Berlin bei Nacht"
-             style="width:100%; height:auto;">
-      </picture>
-      <div class="story-text" style="padding:var(--space-lg);">
-        <h2>Berlin – Urbanes Licht</h2>
-        <p>Im Herbst 2024 habe ich die Stadt bei Dämmerung erkundet. Die Mischung aus historischen Fassaden und moderner Neon‑Beleuchtung erzeugt ein einzigartiges Spiel von Licht und Schatten.</p>
+    <article style="margin-bottom: 5rem;">
+      <div class="topic-card" style="margin-bottom:1.5rem;">
+        <img src="img/Zebrastreifen_Stockholm_Hochkant.jpeg" alt="Stockholm Street" style="object-position: center;">
       </div>
+      <h2>Stockholm – Urban Geometry</h2>
+      <p>Ein Wochenende in Schweden. Zwischen historischer Altstadt und moderner Architektur bietet Stockholm endlose Motive. Besonders das Spiel aus Licht und Schatten in den engen Gassen hat mich fasziniert.</p>
     </article>
 
-    <article class="travel-story" style="margin-bottom:var(--space-xl);">
-      <picture>
-        <source srcset="assets/img/reisen/island-large.jpg" media="(min-width: 800px)">
-        <img src="assets/img/reisen/island-small.jpg"
-             alt="Islandische Gletscher"
-             style="width:100%; height:auto;">
-      </picture>
-      <div class="story-text" style="padding:var(--space-lg);">
-        <h2>Island – Eis & Feuer</h2>
-        <p>Eine Woche im Land der Feuer und des Eises. Die kontrastreichen Landschaften von Gletschern, Vulkanen und schwarzen Sandstränden bieten unzählige Bildkompositionen.</p>
+    <article style="margin-bottom: 5rem;">
+      <div class="topic-card" style="margin-bottom:1.5rem;">
+        <img src="img/Polarlichter_Westerhever.jpeg" alt="Nordsee Leuchtturm">
       </div>
+      <h2>Nordsee – Wenn der Himmel leuchtet</h2>
+      <p>Nicht immer muss man nach Island reisen. Manchmal geschehen Wunder direkt vor der Haustür. Diese Aufnahme am Westerhever Leuchtturm entstand in einer klaren Nacht, als Sonnenwinde den Himmel färbten.</p>
     </article>
 
-    <!-- weitere Stories … -->
+    <article style="margin-bottom: 5rem;">
+      <div class="topic-card" style="margin-bottom:1.5rem;">
+        <img src="img/Zeche_zollverein.jpeg" alt="Zeche Zollverein">
+      </div>
+      <h2>Ruhrpott – Industriekultur</h2>
+      <p>Wo früher Kohle gefördert wurde, findet man heute Kunst. Die Zeche Zollverein ist ein Paradebeispiel für den Wandel einer ganzen Region. Stahl, Rost und Sonnenuntergang.</p>
+    </article>
 
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
-    <div class="footer-inner">
-      <p class="footer-copy">
-        © 2025 Lasse Knoop – Fotografie. Alle Rechte vorbehalten.
-      </p>
-      <ul class="footer-links">
-        <li><a href="impressum.html">Impressum</a></li>
-        <li><a href="datenschutz.html">Datenschutz</a></li>
-      </ul>
-    </div>
+    <p>© 2025 Lasse Knoop.</p>
+    <ul class="footer-links"><li><a href="impressum.html">Impressum</a></li></ul>
   </footer>
-
-  <script src="script.js"></script>
+  <script src="script.js?v=1.2"></script>
 </body>
 </html>

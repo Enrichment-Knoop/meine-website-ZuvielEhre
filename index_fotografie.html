@@ -4,230 +4,121 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fotografie – Lasse Knoop</title>
-
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <link rel="stylesheet" href="style.css?v=1.2">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 </head>
 <body>
+  <div id="sparkles"></div>
 
-  <div class="sparkles" id="sparkles"></div>
-
-  <!-- ==================== Header ==================== -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo" aria-label="Startseite">
-        <img src="img/Ich_Breit_Baellebad_Arken.jpg"
-             alt="asse Knoop – Fotografie & Web‑Design">
-      </a>
-
-      <nav class="nav" aria-label="Hauptnavigation">
+      <a href="index.html" class="logo"><img src="assets/img/logo-white.svg" alt="Lasse Knoop"></a>
+      <button class="nav-toggle"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <nav class="nav">
         <ul>
-          <li><a href="index_fotografie.html" class="nav-link" data-theme="fotografie">Fotografie</a></li>
-          <li><a href="index_webdesign.html" class="nav-link" data-theme="webdesign">Web‑Design</a></li>
+          <li><a href="index_fotografie.html" data-theme="fotografie">Fotografie</a></li>
+          <li><a href="index_webdesign.html" data-theme="webdesign">Web‑Design</a></li>
+          <li><a href="reisen.html">Reisen</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-          <li><a href="impressum.html">Impressum</a></li>
         </ul>
       </nav>
-
-      <button class="nav-toggle" aria-label="Menü öffnen"><span class="icon-menu"></span></button>
     </div>
   </header>
 
-  <!-- ==================== Hauptinhalt ==================== -->
   <main class="main-content">
+    <h1>Fotografie</h1>
+    <p>Momente, eingefangen in Licht und Schatten.</p>
 
-    <h1>Fotografie‑Portfolio</h1>
-
-    <!-- ---------- Hero‑Slider (wie vorher) ---------- -->
-    <section class="hero-slider">
-      <div class="slide active"
-           style="background-image:url('img/Blätter_Dreamy_hochkant.jpeg');">
-        <div class="caption">
-          <h1>Blätter – Dreamy</h1>
-          <p>Ein Moment im Herbstlicht.</p>
-        </div>
-      </div>
-
-      <div class="slide"
-           style="background-image:url('img/Polarlichter_Westerhever.jpeg');">
-        <div class="caption">
-          <h1>Polarlichter – Westerhever</h1>
-          <p>Grünes Leuchten über dem Meer.</p>
-        </div>
-      </div>
-
-      <div class="slide"
-           style="background-image:url('img/Zeche_zollverein.jpeg');">
-        <div class="caption">
-          <h1>Zeche Zollverein</h1>
-          <p>Industriekultur im Abendrot.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ---------- Galerie ---------- -->
     <section class="gallery-grid">
-      <!-- 1 -->
+      
       <figure class="gallery-item">
-        <a href="img/Blätter_Dreamy_hochkant.jpeg"
-           class="lightbox"
-           data-title="Blätter – Dreamy">
-          <img src="img/Blätter_Dreamy_hochkant.jpeg"
-               alt="Blätter – Dreamy">
+        <a href="img/Blätter_Dreamy_hochkant.jpeg" class="glightbox" data-title="Herbstlicht">
+          <img src="img/Blätter_Dreamy_hochkant.jpeg" alt="Blätter Dreamy">
         </a>
-        <figcaption>Blätter – Dreamy</figcaption>
       </figure>
 
-      <!-- 2 -->
       <figure class="gallery-item">
-        <a href="img/Blüten_Hochkant.jpeg"
-           class="lightbox"
-           data-title="Blüten – Hochkant">
-          <img src="img/Blüten_Hochkant.jpeg"
-               alt="Blüten – Hochkant">
+        <a href="img/Blüten_Hochkant.jpeg" class="glightbox">
+          <img src="img/Blüten_Hochkant.jpeg" alt="Blüten">
         </a>
-        <figcaption>Blüten – Hochkant</figcaption>
       </figure>
 
-      <!-- 3 -->
       <figure class="gallery-item">
-        <a href="img/Feuerwerk_KielerWoche.jpeg"
-           class="lightbox"
-           data-title="Feuerwerk – Kieler Woche">
-          <img src="img/Feuerwerk_KielerWoche.jpeg"
-               alt="Feuerwerk – Kieler Woche">
+        <a href="img/Feuerwerk_KielerWoche.jpeg" class="glightbox" data-title="Kieler Woche">
+          <img src="img/Feuerwerk_KielerWoche.jpeg" alt="Feuerwerk">
         </a>
-        <figcaption>Feuerwerk – Kieler Woche</figcaption>
       </figure>
 
-      <!-- 4 -->
       <figure class="gallery-item">
-        <a href="img/Jet_Formation.jpeg"
-           class="lightbox"
-           data-title="Jet Formation">
-          <img src="img/Jet_Formation.jpeg"
-               alt="Jet Formation">
+        <a href="img/Jet_Formation.jpeg" class="glightbox">
+          <img src="img/Jet_Formation.jpeg" alt="Jets">
         </a>
-        <figcaption>Jet Formation</figcaption>
       </figure>
 
-      <!-- 5 -->
       <figure class="gallery-item">
-        <a href="img/Krähe_Sanddorn.jpeg"
-           class="lightbox"
-           data-title="Krähe am Sanddorn">
-          <img src="img/Krähe_Sanddorn.jpeg"
-               alt="Krähe am Sanddorn">
+        <a href="img/Krähe_Sanddorn.jpeg" class="glightbox">
+          <img src="img/Krähe_Sanddorn.jpeg" alt="Krähe">
         </a>
-        <figcaption>Krähe am Sanddorn</figcaption>
       </figure>
 
-      <!-- 6 -->
       <figure class="gallery-item">
-        <a href="img/Moeve_Sonnenuntergang_SanktPeterOrding.jpeg"
-           class="lightbox"
-           data-title="Möwe – Sonnenuntergang Sankt Peter‑Ording">
-          <img src="img/Moeve_Sonnenuntergang_SanktPeterOrding.jpeg"
-               alt="Möwe – Sonnenuntergang Sankt Peter‑Ording">
+        <a href="img/Moeve_Sonnenuntergang_SanktPeterOrding.jpeg" class="glightbox" data-title="SPO Sunset">
+          <img src="img/Moeve_Sonnenuntergang_SanktPeterOrding.jpeg" alt="Möwe SPO">
         </a>
-        <figcaption>Möwe – Sonnenuntergang</figcaption>
       </figure>
 
-      <!-- 7 -->
       <figure class="gallery-item">
-        <a href="img/Paar_Strand_Hochkant.jpeg"
-           class="lightbox"
-           data-title="Paar am Strand">
-          <img src="img/Paar_Strand_Hochkant.jpeg"
-               alt="Paar am Strand">
+        <a href="img/Paar_Strand_Hochkant.jpeg" class="glightbox">
+          <img src="img/Paar_Strand_Hochkant.jpeg" alt="Paar am Strand">
         </a>
-        <figcaption>Paar am Strand</figcaption>
       </figure>
 
-      <!-- 8 -->
       <figure class="gallery-item">
-        <a href="img/Polarlichter_Westerhever.jpeg"
-           class="lightbox"
-           data-title="Polarlichter – Westerhever">
-          <img src="img/Polarlichter_Westerhever.jpeg"
-               alt="Polarlichter – Westerhever">
+        <a href="img/Polarlichter_Westerhever.jpeg" class="glightbox" data-title="Westerhever Leuchtturm">
+          <img src="img/Polarlichter_Westerhever.jpeg" alt="Polarlichter">
         </a>
-        <figcaption>Polarlichter – Westerhever</figcaption>
       </figure>
 
-      <!-- 9 -->
       <figure class="gallery-item">
-        <a href="img/Reh_Closup.jpeg"
-           class="lightbox"
-           data-title="Reh – Close‑up">
-          <img src="img/Reh_Closup.jpeg"
-               alt="Reh – Close‑up">
+        <a href="img/Reh_Closup.jpeg" class="glightbox">
+          <img src="img/Reh_Closup.jpeg" alt="Reh">
         </a>
-        <figcaption>Reh – Close‑up</figcaption>
       </figure>
 
-      <!-- 10 -->
       <figure class="gallery-item">
-        <a href="img/Surfer_Sunset_SPO.jpeg"
-           class="lightbox"
-           data-title="Surfer beim Sonnenuntergang">
-          <img src="img/Surfer_Sunset_SPO.jpeg"
-               alt="Surfer beim Sonnenuntergang">
+        <a href="img/Surfer_Sunset_SPO.jpeg" class="glightbox" data-title="Surfer Vibes">
+          <img src="img/Surfer_Sunset_SPO.jpeg" alt="Surfer">
         </a>
-        <figcaption>Surfer beim Sonnenuntergang</figcaption>
       </figure>
 
-      <!-- 11 -->
       <figure class="gallery-item">
-        <a href="img/SW_London_Reporter_Hochkant.jpeg"
-           class="lightbox"
-           data-title="London Reporter – Schwarz‑Weiß">
-          <img src="img/SW_London_Reporter_Hochkant.jpeg"
-               alt="London Reporter – Schwarz‑Weiß">
+        <a href="img/SW_London_Reporter_Hochkant.jpeg" class="glightbox" data-title="London Street">
+          <img src="img/SW_London_Reporter_Hochkant.jpeg" alt="London Reporter">
         </a>
-        <figcaption>London Reporter – S/W</figcaption>
       </figure>
 
-      <!-- 12 -->
       <figure class="gallery-item">
-        <a href="img/Zebrastreifen_Stockholm_Hochkant.jpeg"
-           class="lightbox"
-           data-title="Zebrastreifen – Stockholm">
-          <img src="img/Zebrastreifen_Stockholm_Hochkant.jpeg"
-               alt="Zebrastreifen – Stockholm">
+        <a href="img/Zebrastreifen_Stockholm_Hochkant.jpeg" class="glightbox" data-title="Stockholm City">
+          <img src="img/Zebrastreifen_Stockholm_Hochkant.jpeg" alt="Stockholm">
         </a>
-        <figcaption>Zebrastreifen – Stockholm</figcaption>
       </figure>
 
-      <!-- 13 -->
       <figure class="gallery-item">
-        <a href="img/Zeche_zollverein.jpeg"
-           class="lightbox"
-           data-title="Zeche Zollverein">
-          <img src="img/Zeche_zollverein.jpeg"
-               alt="Zeche Zollverein">
+        <a href="img/Zeche_zollverein.jpeg" class="glightbox" data-title="Ruhrpott Kultur">
+          <img src="img/Zeche_zollverein.jpeg" alt="Zeche Zollverein">
         </a>
-        <figcaption>Zeche Zollverein</figcaption>
       </figure>
+
     </section>
-
   </main>
 
-  <!-- ==================== Footer ==================== -->
   <footer class="site-footer">
-    <div class="footer-inner">
-      <p>© 2025 Lasse Knoop – Fotografie &amp; Web‑Design. Alle Rechte vorbehalten.</p>
-      <ul class="footer-links">
-        <li><a href="impressum.html">Impressum</a></li>
-        <li><a href="datenschutz.html">Datenschutz</a></li>
-      </ul>
-    </div>
+    <p>© 2025 Lasse Knoop.</p>
+    <ul class="footer-links"><li><a href="impressum.html">Impressum</a></li></ul>
   </footer>
 
-  <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="script.js?v=1.2"></script>
+  <script>const lightbox = GLightbox({ selector: '.glightbox' });</script>
 </body>
 </html>

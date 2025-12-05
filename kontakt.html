@@ -4,62 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt – Lasse Knoop</title>
-
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css?v=1.2">
 </head>
 <body>
+  <div id="sparkles"></div>
 
-  <div class="sparkles" id="sparkles"></div>
-
-  <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo" aria-label="Startseite">
-        <img src="assets/img/logo-white.svg" alt="Lasse Knoop – Fotografie & Web‑Design">
-      </a>
-
-      <nav class="nav" aria-label="Hauptnavigation">
+      <a href="index.html" class="logo"><img src="assets/img/logo-white.svg" alt="Lasse Knoop"></a>
+      <button class="nav-toggle" aria-label="Menü"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <nav class="nav">
         <ul>
-          <li><a href="index_fotografie.html" class="nav-link" data-theme="fotografie">Fotografie</a></li>
-          <li><a href="index_webdesign.html" class="nav-link" data-theme="webdesign">Web‑Design</a></li>
+          <li><a href="index_fotografie.html" data-theme="fotografie">Fotografie</a></li>
+          <li><a href="index_webdesign.html" data-theme="webdesign">Web‑Design</a></li>
+          <li><a href="reisen.html">Reisen</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-          <li><a href="impressum.html">Impressum</a></li>
         </ul>
       </nav>
-
-      <button class="nav-toggle" aria-label="Menü öffnen"><span class="icon-menu"></span></button>
     </div>
   </header>
 
   <main class="main-content">
-    <h1>Kontakt &amp; Buchung</h1>
+    
+    <div class="contact-wrapper">
+      <h1>Let's work together.</h1>
+      <p>Du hast ein Projekt, ein Shooting oder eine Kooperation im Sinn?<br>
+      Ich freue mich auf deine Nachricht.</p>
 
-    <p>Du hast ein Projekt, ein Shooting oder eine Kooperation im Sinn? Schreib mir einfach!</p>
+      <a href="mailto:lasse.knoop@gmx.net" class="cta-button">
+        E-Mail schreiben
+      </a>
 
-    <form id="contact-form"
-          action="https://formspree.io/f/your-form-id"
-          method="POST"
-          class="contact-form">
-      <input type="text" name="name" placeholder="Name *" required>
-      <input type="email" name="_replyto" placeholder="E‑Mail *" required>
-      <input type="text" name="subject" placeholder="Betreff">
-      <textarea name="message" rows="5" placeholder="Nachricht *" required></textarea>
-      <button type="submit">Absenden</button>
-    </form>
+      <p style="font-size: 0.9rem; color: var(--text-secondary);">
+        Oder direkt an:<br>
+        <span class="mail-address">lasse.knoop@gmx.net</span>
+      </p>
+    </div>
+
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
-    <div class="footer-inner">
-      <p>© 2025 Lasse Knoop – Fotografie & Web‑Design. Alle Rechte vorbehalten.</p>
-      <ul class="footer-links">
-        <li><a href="impressum.html">Impressum</a></li>
-        <li><a href="datenschutz.html">Datenschutz</a></li>
-      </ul>
-    </div>
+    <p>© 2025 Lasse Knoop.</p>
+    <ul class="footer-links"><li><a href="impressum.html">Impressum</a></li></ul>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=1.2"></script>
 </body>
 </html>
